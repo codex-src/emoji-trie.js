@@ -71,6 +71,8 @@ const dataset = [
 	[0x1F9D1, 0x1F3FF, 0x200D, 0x1F4BB],
 ]
 
+const datasetReversed = dataset.map(each => each.slice().reverse())
+
 // TODO: Add string
 class CodePointTrie {
 	constructor(dataset) {
@@ -113,35 +115,31 @@ class CodePointTrie {
 	}
 }
 
-const emojiTrie = new CodePointTrie(dataset)
-
+// https://unicode.org/Public/emoji/12.1/emoji-test.txt
 const EmojiTrie = new CodePointTrie(dataset)
 // const EmojiTrieReversed = new CodePointTrie(datasetReversed)
 
 // Gets code points from a string.
-function getCodePointsFromString(substr) {
-	const codePoints = [...substr.slice(0, 32)].map(each => each.codePointAt(0))
-	return codePoints
-}
-
-// Gets the next emoji.
 //
 // NOTE: As of Unicode 12.1, the longest emoji sequence is
 // 14 bytes and 8 code points; substr does not need to be
-// more than 14 bytes -- can use 16 or 32 to be safe
-//
-// https://unicode.org/Public/emoji/12.1/emoji-test.txt
-function getNextEmoji(substr) {
+// more than 14 bytes -- use 32 or more to be safe
+function getCodePointsFromString(substr) {
+	return [...substr.slice(0, 32)].map(each => each.codePointAt(0))
+}
+
+// Gets the emoji at the start of a string.
+export function getEmojiAtStartOfString(substr) {
 	const codePoints = getCodePointsFromString(substr)
 	console.log(codePoints)
 	return EmojiTrie.matches(...codePoints)
 }
 
-// // Gets the previous emoji.
-// function getPrevEmoji(substr) {
-// 	const codePoints = getCodePointsFromString(substr)
-// 	codePoints.reverse()
-// 	return EmojiTrieReversed.matches(codePoints)
-// }
+// Gets the emoji at the end of a string.
+export function getEmojiAtEndOfString(substr) {
+	const codePoints = getCodePointsFromString(substr)
+	codePoints.reverse()
+	return EmojiTrieReversed.matches(codePoints)
+}
 
 console.log(getNextEmoji("👨‍🔬 hello, world!"))
