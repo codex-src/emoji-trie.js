@@ -2,7 +2,7 @@
 
 # EmojiTrie
 
-This repo was originally built for handling emoji in the [Codex editor](), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render emojis as multiple characters or deleting an emoji requires multiple backspaces. This is because emojis are **much more** complex than single-byte characters like `a`, `b`, `c`, etc.
+This repo was originally built for handling emoji in the [Codex editor](), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple characters, or deleting an emoji requires multiple backspaces. This is because emojis are far more complex than single-byte characters like `a`, `b`, `c`, etc.
 
 > _What is a trie?_
 
