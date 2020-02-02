@@ -4,7 +4,7 @@
 
 This repo was originally built for handling emoji in the [Codex editor](), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render emojis as multiple characters or deleting an emoji requires multiple backspaces. This is because emojis are **much more** complex than single-byte characters like `a`, `b`, `c`, etc.
 
-> What is a trie?
+> _What is a trie?_
 
 A trie in computer science is also known as a DAG -- a [directed acyclic graph](). Effectively, a unidirectional tree where all child nodes can only ever point to more child nodes. This might sound confusing, but you can imagine a trie as a kind of nested switch statement expression:
 
