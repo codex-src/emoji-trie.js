@@ -1,0 +1,14 @@
+{
+  "name": "EmojiTrie",
+  "version": "0.1.0",
+  "main": "build/EmojiTrie.js",
+  "repository": "https://github.com/codex-src/EmojiTrie.js",
+  "author": "Zaydek Michels-Gualtieri <zaydekdotcom+codex-zaydek@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "lint": "yarn eslint --ignore-pattern=build .",
+    "build": "yarn lint && yarn rollup -c rollup.config.js"
+  },
+  "devDependencies": {}
+}
