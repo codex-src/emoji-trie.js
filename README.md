@@ -45,6 +45,6 @@ The purpose of this package is to make accessing the next and previous emoji -- 
 
 > Why are emojis ‘special’?
 
-You may be surprised to learn that for computers, emojis are not one character; [`💩.length === 2`](), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes. 
+You may be surprised to learn that for computers, emojis are not one character; [`"💩".length === 2`](), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes. 
 
 Other alternatives **do** exist that solve for this problem, using one technique or another, such as [regex]() and the [UAX #29]() algorithm, but I argue that such implementations are heavy-handed and convolute the problem space.
