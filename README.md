@@ -43,7 +43,7 @@ Yes, this is maddening but *does* demonstrate the use case for tries -- logical 
 
 The purpose of this package is to make accessing the next and previous emoji -- **any emoji** (Unicode 12.1 -- 4,022 emojis at the time of this writing) -- simple and as fast as possible.
 
-> Why are emojis ‘special’?
+> _Why are emojis ‘special’?_
 
 You may be surprised to learn that for computers, emojis are not one character; [`"💩".length === 2`](), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes. 
 
