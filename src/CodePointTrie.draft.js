@@ -75,6 +75,7 @@ const datasetReversed = dataset.map(each => each.slice().reverse())
 
 // TODO: Add string
 class CodePointTrie {
+	// Creates a new code point trie from a dataset.
 	constructor(dataset) {
 		const trie = {}
 		for (let y = 0; y < dataset.length; y++) {
@@ -99,6 +100,7 @@ class CodePointTrie {
 			trie,
 		})
 	}
+	// Returns whether a sequence of code points matches.
 	matches(...codePoints) {
 		let ref = this.trie
 		for (let index = 0; index < codePoints.length; index++) {

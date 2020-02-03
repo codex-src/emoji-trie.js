@@ -10,5 +10,9 @@
     "lint": "yarn eslint --ignore-pattern=build .",
     "build": "yarn lint && yarn rollup -c rollup.config.js"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "node-fetch": "^2.6.0"
+  }
 }
