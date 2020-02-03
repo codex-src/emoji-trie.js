@@ -7,7 +7,6 @@ const VERSION = "13.0" // 2020-01-21
 const URL = `https://unicode.org/Public/emoji/${VERSION}/emoji-test.txt`
 
 ;(async function main() {
-	const t1 = Date.now()
 	// Get the data:
 	let resp = null
 	let text = ""
@@ -44,7 +43,4 @@ const URL = `https://unicode.org/Public/emoji/${VERSION}/emoji-test.txt`
 	} catch (e) {
 		throw new Error(`fs.writeFile: ${e}`)
 	}
-	const t2 = Date.now()
-	const secs = (t2 - t1) / 1e3
-	console.log(`✨  Done in ${secs.toFixed(2)}s.`)
 })()
