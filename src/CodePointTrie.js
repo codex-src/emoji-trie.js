@@ -16,7 +16,13 @@ class CodePointTrie {
 						throw new Error("CodePointTrie: An unexpected repeat sequence occurred.")
 					}
 					const match = String.fromCodePoint(...dataset[y])
-					ref[dataset[y][x]] = { match }
+					// Create a new sequence path:
+					if (!ref[dataset[y][x]]) {
+						ref[dataset[y][x]] = { match }
+					// Do not overwrite sequence paths:
+					} else {
+						ref[dataset[y][x]].match = match
+					}
 				}
 				ref = ref[dataset[y][x]]
 			}

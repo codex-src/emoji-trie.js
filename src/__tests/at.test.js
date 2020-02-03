@@ -43,7 +43,6 @@ function newReverseIterator(str) {
 
 const helloWorld = "hello, world! 😀"
 
-// FIXME
 test("hello, world! (1 of 2)", () => {
 	const iter = newIterator(helloWorld)
 	expect(iter()).toBe("h")
@@ -64,7 +63,6 @@ test("hello, world! (1 of 2)", () => {
 	expect(iter()).toBe(EOF)
 })
 
-// FIXME
 test("hello, world! (2 of 2)", () => {
 	const iter = newReverseIterator(helloWorld)
 	expect(iter()).toBe("😀")
@@ -203,34 +201,33 @@ test("holding hands (1 of 2)", () => {
 
 test("holding hands (2 of 2)", () => {
 	const iter = newReverseIterator(holdingHands)
-	console.log([...iter()].map(each => each.codePointAt(0).toString(16).toUpperCase()))
-	// expect(iter()).toBe("🧑🏿‍🤝‍🧑🏿")
-	// expect(iter()).toBe("🧑🏿‍🤝‍🧑🏾")
-	// expect(iter()).toBe("🧑🏿‍🤝‍🧑🏽")
-	// expect(iter()).toBe("🧑🏿‍🤝‍🧑🏼")
-	// expect(iter()).toBe("🧑🏿‍🤝‍🧑🏻")
-	// expect(iter()).toBe("🧑🏾‍🤝‍🧑🏿")
-	// expect(iter()).toBe("🧑🏾‍🤝‍🧑🏾")
-	// expect(iter()).toBe("🧑🏾‍🤝‍🧑🏽")
-	// expect(iter()).toBe("🧑🏾‍🤝‍🧑🏼")
-	// expect(iter()).toBe("🧑🏾‍🤝‍🧑🏻")
-	// expect(iter()).toBe("🧑🏽‍🤝‍🧑🏿")
-	// expect(iter()).toBe("🧑🏽‍🤝‍🧑🏾")
-	// expect(iter()).toBe("🧑🏽‍🤝‍🧑🏽")
-	// expect(iter()).toBe("🧑🏽‍🤝‍🧑🏼")
-	// expect(iter()).toBe("🧑🏽‍🤝‍🧑🏻")
-	// expect(iter()).toBe("🧑🏼‍🤝‍🧑🏿")
-	// expect(iter()).toBe("🧑🏼‍🤝‍🧑🏾")
-	// expect(iter()).toBe("🧑🏼‍🤝‍🧑🏽")
-	// expect(iter()).toBe("🧑🏼‍🤝‍🧑🏼")
-	// expect(iter()).toBe("🧑🏼‍🤝‍🧑🏻")
-	// expect(iter()).toBe("🧑🏻‍🤝‍🧑🏿")
-	// expect(iter()).toBe("🧑🏻‍🤝‍🧑🏾")
-	// expect(iter()).toBe("🧑🏻‍🤝‍🧑🏽")
-	// expect(iter()).toBe("🧑🏻‍🤝‍🧑🏼")
-	// expect(iter()).toBe("🧑🏻‍🤝‍🧑🏻")
-	// expect(iter()).toBe("🧑‍🤝‍🧑")
-	// expect(iter()).toBe(EOF)
+	expect(iter()).toBe("🧑🏿‍🤝‍🧑🏿")
+	expect(iter()).toBe("🧑🏿‍🤝‍🧑🏾")
+	expect(iter()).toBe("🧑🏿‍🤝‍🧑🏽")
+	expect(iter()).toBe("🧑🏿‍🤝‍🧑🏼")
+	expect(iter()).toBe("🧑🏿‍🤝‍🧑🏻")
+	expect(iter()).toBe("🧑🏾‍🤝‍🧑🏿")
+	expect(iter()).toBe("🧑🏾‍🤝‍🧑🏾")
+	expect(iter()).toBe("🧑🏾‍🤝‍🧑🏽")
+	expect(iter()).toBe("🧑🏾‍🤝‍🧑🏼")
+	expect(iter()).toBe("🧑🏾‍🤝‍🧑🏻")
+	expect(iter()).toBe("🧑🏽‍🤝‍🧑🏿")
+	expect(iter()).toBe("🧑🏽‍🤝‍🧑🏾")
+	expect(iter()).toBe("🧑🏽‍🤝‍🧑🏽")
+	expect(iter()).toBe("🧑🏽‍🤝‍🧑🏼")
+	expect(iter()).toBe("🧑🏽‍🤝‍🧑🏻")
+	expect(iter()).toBe("🧑🏼‍🤝‍🧑🏿")
+	expect(iter()).toBe("🧑🏼‍🤝‍🧑🏾")
+	expect(iter()).toBe("🧑🏼‍🤝‍🧑🏽")
+	expect(iter()).toBe("🧑🏼‍🤝‍🧑🏼")
+	expect(iter()).toBe("🧑🏼‍🤝‍🧑🏻")
+	expect(iter()).toBe("🧑🏻‍🤝‍🧑🏿")
+	expect(iter()).toBe("🧑🏻‍🤝‍🧑🏾")
+	expect(iter()).toBe("🧑🏻‍🤝‍🧑🏽")
+	expect(iter()).toBe("🧑🏻‍🤝‍🧑🏼")
+	expect(iter()).toBe("🧑🏻‍🤝‍🧑🏻")
+	expect(iter()).toBe("🧑‍🤝‍🧑")
+	expect(iter()).toBe(EOF)
 })
 
 // # subgroup: subdivision-flag
