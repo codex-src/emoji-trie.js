@@ -36,10 +36,10 @@ const URL = `https://unicode.org/Public/emoji/${VERSION}/emoji-test.txt`
 		return codePoints
 	})
 	// Save the dataset:
-	const name = `UNICODE_${VERSION.replace(".", "-")}_DO-NOT-EDIT.json`
-	const data = JSON.stringify({ dataset }, null, "\t")
+	const name = `UNICODE_${VERSION.replace(".", "-")}_DO-NOT-EDIT.generated.json`
+	const data = JSON.stringify({ dataset })
 	try {
-		fs.writeFileSync(name, `${data}\n`) // EOF
+		fs.writeFileSync(`./script/${name}`, `${data}\n`) // EOF
 	} catch (e) {
 		throw new Error(`fs.writeFile: ${e}`)
 	}
