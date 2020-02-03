@@ -13,8 +13,8 @@ You can’t, just yet, but soon you’ll be able to import this package like so:
 ```js
 import emojiTrie from "emoji-trie"
 
-emojiTrie.getNext("👩🏽‍🔬 Hello, world!") // 👩🏽‍🔬
-emojiTrie.getPrev("Hello, world! 👩🏽‍🔬") // 👩🏽‍🔬
+emojiTrie.atStart("👩🏽‍🔬 Hello, world!") // 👩🏽‍🔬
+emojiTrie.atEnd("Hello, world! 👩🏽‍🔬")   // 👩🏽‍🔬
 ```
 
 _If you’re not using ES6 Imports, try `const emojiTrie = require("emoji-trie")`._
