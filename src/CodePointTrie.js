@@ -25,17 +25,20 @@ class CodePointTrie {
 			trie,
 		})
 	}
-	// FIXME: Return greatest (not least) combination
 	matches(codePoints) { // Expects an array of numbers
 		let ref = this.trie
+		let str = ""
 		for (let index = 0; index < codePoints.length; index++) {
 			const res = ref[codePoints[index]]
-			if (!res || res.string) {
-				return res.string || ""
+			if (!res) {
+				return str // Return eager match or no match
+			}
+			if (res.string) {
+				str = res.string
 			}
 			ref = res
 		}
-		return ""
+		return str
 	}
 }
 
