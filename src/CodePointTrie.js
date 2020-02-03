@@ -37,7 +37,7 @@ class CodePointTrie {
 			// If the current reference has a match, update the
 			// current match:
 			if (res.match) {
-				match = res.match
+				match = res.match // eslint-disable-line prefer-destructuring
 			}
 			ref = res
 		}
@@ -45,4 +45,4 @@ class CodePointTrie {
 	}
 }
 
-module.exports = CodePointTrie
+export default CodePointTrie

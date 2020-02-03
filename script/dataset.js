@@ -1,3 +1,4 @@
+// $ node script/dataset.js
 const fetch = require("node-fetch")
 const fs = require("fs")
 
@@ -45,5 +46,5 @@ const URL = `https://unicode.org/Public/emoji/${VERSION}/emoji-test.txt`
 	}
 	const t2 = Date.now()
 	const secs = (t2 - t1) / 1e3
-	console.log(`done (${secs}s)`)
+	console.log(`✨  Done in ${secs.toFixed(2)}s.`)
 })()
