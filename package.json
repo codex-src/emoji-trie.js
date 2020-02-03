@@ -9,13 +9,16 @@
   "scripts": {
     "lint": "yarn eslint --ignore-pattern=build .",
     "run-script": "node script/dataset.js",
-    "build": "yarn lint && yarn rollup -c rollup.config.js"
+    "test": "yarn jest",
+    "build": "yarn lint && yarn test && yarn rollup -c rollup.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "@rollup/plugin-json": "^4.0.2",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
+    "jest": "^25.1.0",
     "node-fetch": "^2.6.0",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3"
