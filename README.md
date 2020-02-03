@@ -5,7 +5,7 @@
   <h1>
     <br>
     <br>
-    emoji-trie 🌲🌳🌴
+    emoji-trie 🌳
     <br>
     <br>
     <br>
