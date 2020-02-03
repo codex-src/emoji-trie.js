@@ -2,11 +2,11 @@
 
 # EmojiTrie
 
-This repo was originally built for handling emoji in the [Codex editor](), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple characters, or deleting an emoji requires multiple backspaces. This is because emojis are far more complex than single-byte characters like `a`, `b`, `c`, etc.
+This repo was originally built for handling emoji in the [Codex editor](https://github.com/codex-src/codex-app), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple component emojis, or deleting an emoji requires multiple backspaces. This is, for example, observable in the Medium editor. This happens emojis are far more complex than single-byte ASCII characters like `a`, `b`, `1`, `2`, etc.
 
 > _What is a trie?_
 
-A trie in computer science is also known as a DAG -- a [directed acyclic graph](). Effectively, a unidirectional tree where all child nodes can only ever point to more child nodes. This might sound confusing, but you can imagine a trie as a kind of nested switch statement expression:
+In computer science, a trie is a unidirectional tree where all child nodes can only ever point to more child nodes. This might sound confusing, but you can imagine a trie as a kind of nested switch statement expression:
 
 ```js
 switch (v1) {
@@ -39,12 +39,12 @@ default:
 }
 ```
 
-Yes, this is maddening but *does* demonstrate the use case for tries -- logical expressions modeled as a data structure _instead of_ statements.
+Yes, this is maddening but *does* demonstrate the use case for tries -- logical expressions modeled as a data structure _instead of_ statements. The trade off, of course, is memory (instead of syntax).
 
-The purpose of this package is to make accessing the next and previous emoji -- **any emoji** (Unicode 12.1 -- 4,022 emojis at the time of this writing) -- simple and as fast as possible.
+The purpose of this package is to make accessing the next and previous emoji -- **any emoji** (>4000 emojis at the time of this writing) -- as simple and fast as possible.
 
-> _Why are emojis ‘special’?_
+> _Why are emojis special?_
 
-You may be surprised to learn that for computers, emojis are not one character; [`"💩".length === 2`](), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes. 
+You may be surprised to learn that for computers, emojis are not one byte; [`"💩".length === 2`](https://mathiasbynens.be/notes/javascript-unicode#counting-symbols), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes.
 
-Other alternatives **do** exist that solve for this problem, using one technique or another, such as [regex]() and the [UAX #29]() algorithm, but I argue that such implementations are heavy-handed and convolute the problem space.
+Other alternatives that solve for this problem **do** exist, using one technique or another, such as [regex](https://github.com/mathiasbynens/emoji-regex) and the [UAX #29](https://unicode.org/reports/tr29/) algorithm, but I argue that such implementations are heavy-handed and convolute the problem space.
