@@ -4,6 +4,23 @@
 
 This repo was originally built for handling emoji in the [Codex editor](https://github.com/codex-src/codex-app), specifically because (at the time of this writing) backspace on an emoji in Firefox is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple component emojis, or deleting an emoji requires multiple backspaces. This is, for example, observable in the Medium editor. This happens emojis are far more complex than single-byte ASCII characters like `a`, `b`, `1`, `2`, etc.
 
+> How do I use this?
+
+You can’t, just yet, but soon you’ll be able to import this package like so:
+
+```yarn add emoji-trie```
+
+```js
+import emojiTrie from "emoji-trie"
+
+emojiTrie.getNext("👩🏽‍🔬 Hello, world!") // 👩🏽‍🔬
+emojiTrie.getPrev("Hello, world! 👩🏽‍🔬") // 👩🏽‍🔬
+```
+
+_If you’re not using ES6 Imports, try `const emojiTrie = require("emoji-trie")`._
+
+That’s it!
+
 > _What is a trie?_
 
 In computer science, a trie is a unidirectional tree where all child nodes can only ever point to more child nodes. This might sound confusing, but you can imagine a trie as a kind of nested switch statement expression:
