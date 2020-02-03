@@ -5,7 +5,7 @@
   <h1>
     <br>
     <br>
-    stylex ✨
+    emoji-trie ✨
     <br>
     <br>
     <br>
@@ -17,7 +17,7 @@
 
 <br>
 
-# EmojiTrie
+# emoji-trie.js
 
 This repo was originally built for handling emoji in the [Codex editor](https://github.com/codex-src/codex-app), specifically because (at the time of this writing) backspace on an emoji in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1198292) is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple component emojis, or deleting an emoji requires multiple backspaces. This is, for example, observable in the Medium editor. This happens emojis are far more complex than single-byte ASCII characters like `a`, `b`, `1`, `2`, etc.
 
