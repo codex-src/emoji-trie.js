@@ -12,11 +12,11 @@ class CodePointTrie {
 					}
 				} else {
 					// Throw on repeat sequences:
-					if (ref[dataset[y][x]] && typeof ref[dataset[y][x]] === "string") {
-						throw new Error("An unexpected repeat sequence occurred")
+					if (ref[dataset[y][x]] && ref[dataset[y][x]].match) {
+						throw new Error("CodePointTrie: An unexpected repeat sequence occurred.")
 					}
-					const string = String.fromCodePoint(...dataset[y])
-					ref[dataset[y][x]] = { string }
+					const match = String.fromCodePoint(...dataset[y])
+					ref[dataset[y][x]] = { match }
 				}
 				ref = ref[dataset[y][x]]
 			}
@@ -25,20 +25,23 @@ class CodePointTrie {
 			trie,
 		})
 	}
-	matches(codePoints) { // Expects an array of numbers
+	getMatch(codePoints) { // Expects an array of numbers
 		let ref = this.trie
-		let str = ""
+		let match = ""
 		for (let index = 0; index < codePoints.length; index++) {
 			const res = ref[codePoints[index]]
+			// If no reference, return eager match or no match:
 			if (!res) {
-				return str // Return eager match or no match
+				return match
 			}
-			if (res.string) {
-				str = res.string
+			// If the current reference has a match, update the
+			// current match:
+			if (res.match) {
+				match = res.match
 			}
 			ref = res
 		}
-		return str
+		return match
 	}
 }
 
