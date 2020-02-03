@@ -8,7 +8,7 @@ This repo was originally built for handling emoji in the [Codex editor](https://
 
 You can’t, just yet, but soon you’ll be able to import this package like so:
 
-```yarn add emoji-trie```
+`yarn add emoji-trie` or `npm add emoji-trie`
 
 ```js
 import emojiTrie from "emoji-trie"
