@@ -19,13 +19,15 @@
 
 emoji-trie makes accessing the next and previous emoji -- any emoji (>4000 emojis at the time of this writing) -- as simple and fast as possible.
 
-This repo was originally built for handling emoji in the [Codex editor](https://github.com/codex-src/codex-app), specifically because (at the time of this writing) backspace on an emoji in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1198292) is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple component emojis, or deleting an emoji requires multiple backspaces. This is, for example, observable in the Medium editor. This happens emojis are far more complex than single-byte ASCII characters like `a`, `b`, `1`, `2`, etc.
+This repo was originally built for handling emoji in the [Codex editor](https://github.com/codex-src/codex-app), specifically because (at the time of this writing) [backspace on an emoji in Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1198292) is not well behaved. You may have even encountered this in other editors in one form or other, where editors render an emoji as multiple component emojis, or deleting an emoji requires multiple backspaces. This is, for example, observable in the Medium editor. This is because handling emojis are far more complex than ASCII-only characters like `a-z`, `0-9`, etc.
 
 > _How do I use this?_
 
-You can’t, just yet, but soon you’ll be able to import this package like so:
+You can import this package like so:
 
-`yarn add emoji-trie` or `npm add emoji-trie`
+`yarn add https://github.com/codex-src/emoji-trie.js` or `npm add ...`
+
+_This package is not currently published to NPM._
 
 ```js
 import emojiTrie from "emoji-trie"
@@ -34,49 +36,55 @@ emojiTrie.atStart("👩🏽‍🔬 Hello, world!") // 👩🏽‍🔬
 emojiTrie.atEnd("Hello, world! 👩🏽‍🔬")   // 👩🏽‍🔬
 ```
 
-_If you’re not using ES6 Imports, try `const emojiTrie = require("emoji-trie")`._
+_If you’re not using ES6 Imports, use `const emojiTrie = require("emoji-trie")`._
 
 That’s it!
 
 > _What is a trie?_
 
-In computer science, a trie is a unidirectional tree where all child nodes can only ever point to more child nodes. This might sound confusing, but you can imagine a trie as a kind of nested switch statement expression:
+> In computer science, a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings.
+>
+> [Wikipedia](https://en.wikipedia.org/wiki/Trie)
+
+So what are tries good for? Instead of modeling logic using statements, like `if` and `switch`, you can model your logic as data structure to achieve much the same with less effort.
+
+In order to match all emojis *and* emoji combinations (efficiently, I might add), you *could* write a series of nested `switch` statements to match all possible emoji code point sequences in order:
 
 ```js
-switch (v1) {
-case 1:
-	switch (v2) {
-	case 2:
-		switch (v3) {
-		case 3:
+switch (codePoints[0]) {
+case 0x...:
+	switch (codePoints[1]) {
+	case 0x...:
+		switch (codePoints[2]) {
+		case 0x...:
 			// ...
-		case 4:
+		case 0x...:
 			// ...
-		case 5:
+		case 0x...:
 			// ...
 		default:
 			// ...
 		}
-	case 3:
+	case 0x...:
 		// ...
-	case 4:
+	case 0x...:
 		// ...
 	default:
 		// ...
 	}
-case 2:
+case 0x...:
 	// ...
-case 3:
+case 0x...:
 	// ...
 default:
 	// ...
 }
 ```
 
-Yes, this is maddening but *does* demonstrate the use case for tries -- logical expressions modeled as a data structure _instead of_ statements. The trade off, of course, is memory (instead of syntax).
+Yes, this is maddening but does demonstrate the use case for tries; modelling logic in terms of a data structure _instead of_ statements. The trade off, of course, is memory.
 
 > _Why are emojis special?_
 
-You may be surprised to learn that for computers, emojis are not one byte; [`"💩".length === 2`](https://mathiasbynens.be/notes/javascript-unicode#counting-symbols), for example. This is because emojis are represented in *code points*, and code points **do not** correspond to bytes.
+You may be surprised to learn that emojis are not single-byte characters. The most famous example of this is [`"💩".length === 2`](https://mathiasbynens.be/notes/javascript-unicode#counting-symbols). This is because JavaScript’s `.length` accessor returns the byte-length, *not* the number of code points. And an emoji (as of Unicode 13.0) can be represented in as few as 1 to 8(!) code points.
 
 Other alternatives that solve for this problem **do** exist, using one technique or another, such as [regex](https://github.com/mathiasbynens/emoji-regex) and the [UAX #29](https://unicode.org/reports/tr29/) algorithm, but I argue that such implementations are heavy-handed and convolute the problem space.
