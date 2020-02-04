@@ -42,9 +42,9 @@ That’s it!
 
 > _What is a trie?_
 >
-> > In computer science, a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings.
-> >
-> > [Wikipedia](https://en.wikipedia.org/wiki/Trie)
+> In computer science, a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data structure used to store a dynamic set or associative array where the keys are usually strings.
+>
+> [Wikipedia](https://en.wikipedia.org/wiki/Trie)
 
 So what are tries good for? Instead of modeling logic using statements, like `if` and `switch`, you can model your logic as data structure to achieve much the same with less effort.
 
