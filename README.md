@@ -15,7 +15,7 @@
 
 <br>
 
-**emoji-trie.js makes querying the next or previous emoji in a string possible — that’s 4,168 emojis as of Unicode 13.0.** This package does not rely on regex — emoji-trie.js uses two internal data structures that hierarchically map _all_ emoji code points in both descending _and_ ascending order, enabling querying for emojis _forwards_ and _backwards_.
+**emoji-trie.js makes querying the next or previous emoji in a string possible — that’s 4,168 emojis as of Unicode 13.0!** This package does not rely on regex — emoji-trie.js uses two internal data structures that hierarchically map _all_ emoji code points in both descending _and_ ascending order, enabling querying for emojis _forwards_ and _backwards_.
 
 ## Installation
 
