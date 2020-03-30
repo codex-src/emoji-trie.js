@@ -1,7 +1,4 @@
-import {
-	atEnd,
-	atStart,
-} from "../index"
+const emojiTrie = require("../index")
 
 const EOF = ""
 
@@ -13,12 +10,14 @@ function newIterator(str) {
 		if (index === str.length) {
 			return EOF
 		}
-		let emoji = atStart(str.slice(index))
+		const emoji = emojiTrie.atStart(str.slice(index))
 		if (!emoji) {
-			emoji = str[index]
+			const char = str[index]
+			index++
+			return char
 		}
-		index += emoji.length
-		return emoji
+		index += emoji.emoji.length
+		return emoji.emoji
 	}
 	return iter
 }
@@ -31,12 +30,14 @@ function newReverseIterator(str) {
 		if (index === -1) {
 			return EOF
 		}
-		let emoji = atEnd(str.slice(0, index + 1))
+		const emoji = emojiTrie.atEnd(str.slice(0, index + 1))
 		if (!emoji) {
-			emoji = str[index]
+			const char = str[index]
+			index--
+			return char
 		}
-		index -= emoji.length
-		return emoji
+		index -= emoji.emoji.length
+		return emoji.emoji
 	}
 	return iter
 }

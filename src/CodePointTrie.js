@@ -3,28 +3,29 @@ class CodePointTrie {
 		const trie = {}
 		for (let y = 0; y < dataset.length; y++) {
 			let ref = trie
-			for (let x = 0; x < dataset[y].length; x++) {
-				const atEnd = x + 1 === dataset[y].length
+			for (let x = 0; x < dataset[y].codePoints.length; x++) {
+				const atEnd = x + 1 === dataset[y].codePoints.length
 				if (!atEnd) {
 					// Do not overwrite sequence paths:
-					if (!ref[dataset[y][x]]) {
-						ref[dataset[y][x]] = {}
+					if (!ref[dataset[y].codePoints[x]]) {
+						ref[dataset[y].codePoints[x]] = {}
 					}
 				} else {
 					// Throw on repeat sequences:
-					if (ref[dataset[y][x]] && ref[dataset[y][x]].match) {
+					if (ref[dataset[y].codePoints[x]] && ref[dataset[y].codePoints[x]].match) {
 						throw new Error("CodePointTrie: An unexpected repeat sequence occurred.")
 					}
-					const match = String.fromCodePoint(...dataset[y])
+					// const match = String.fromCodePoint(...dataset[y].codePoints)
+					const match = dataset[y]
 					// Create a new sequence path:
-					if (!ref[dataset[y][x]]) {
-						ref[dataset[y][x]] = { match }
+					if (!ref[dataset[y].codePoints[x]]) {
+						ref[dataset[y].codePoints[x]] = { match }
 					// Do not overwrite sequence paths:
 					} else {
-						ref[dataset[y][x]].match = match
+						ref[dataset[y].codePoints[x]].match = match
 					}
 				}
-				ref = ref[dataset[y][x]]
+				ref = ref[dataset[y].codePoints[x]]
 			}
 		}
 		Object.assign(this, {
@@ -51,4 +52,4 @@ class CodePointTrie {
 	}
 }
 
-export default CodePointTrie
+module.exports = CodePointTrie

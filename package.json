@@ -1,6 +1,6 @@
 {
   "name": "emoji-trie",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "build/index.js",
   "repository": "https://github.com/codex-src/emoji-trie.js",
   "author": "Zaydek Michels-Gualtieri <zaydekdotcom+codex-zaydek@gmail.com>",
@@ -8,7 +8,6 @@
   "dependencies": {},
   "scripts": {
     "lint": "yarn eslint --ignore-pattern=build .",
-    "run-script": "node script/dataset.js",
     "test": "yarn jest",
     "build": "yarn lint && yarn test && yarn rollup -c rollup.config.js"
   },

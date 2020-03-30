@@ -1,8 +1,8 @@
-import CodePointTrie from "./CodePointTrie"
-import { dataset } from "../script/UNICODE_13-0_DO-NOT-EDIT.generated.json"
+const CodePointTrie = require("./CodePointTrie")
+const dataset = require("../scripts/UNICODE_13-0_DO-NOT-EDIT.generated.json")
 
 const EmojiTrie = new CodePointTrie(dataset)
-const ReversedEmojiTrie = new CodePointTrie(dataset.map(each => each.slice().reverse()))
+const ReversedEmojiTrie = new CodePointTrie(dataset.map(each => ({ ...each, codePoints: [...each.codePoints].reverse() })))
 
 // Gets code points from a string.
 function getCodePointsFromString(str) {
@@ -15,13 +15,7 @@ export function atStart(substr) {
 	const arr = substr.split("\n")
 	substr = arr[0] // Start
 	const codePoints = getCodePointsFromString(substr)
-	const match = EmojiTrie.getMatch(codePoints)
-	// Not found:
-	if (!match) {
-		return ""
-	}
-	// Found:
-	return match
+	return EmojiTrie.getMatch(codePoints)
 }
 
 // Gets the previous emoji (from the end of a string)
@@ -30,13 +24,5 @@ export function atEnd(substr) {
 	const arr = substr.split("\n")
 	substr = arr[arr.length - 1] // End
 	const reversedCodePoints = getCodePointsFromString(substr).reverse()
-	let match = ReversedEmojiTrie.getMatch(reversedCodePoints)
-	// Not found:
-	if (!match) {
-		return ""
-	}
-	// Found:
-	const codePoints = getCodePointsFromString(match).reverse()
-	match = String.fromCodePoint(...codePoints)
-	return match
+	return ReversedEmojiTrie.getMatch(reversedCodePoints)
 }
