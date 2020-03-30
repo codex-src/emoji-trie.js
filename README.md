@@ -88,3 +88,37 @@ Yes, this is maddening but does demonstrate the use case for tries; modelling lo
 You may be surprised to learn that emojis are not single-byte characters. The most famous example of this is [`"💩".length === 2`](https://mathiasbynens.be/notes/javascript-unicode#counting-symbols). This is because JavaScript’s `.length` accessor returns the byte-length, *not* the number of code points. And an emoji (as of Unicode 13.0) can be represented in 1 to 8(!) code points.
 
 Other alternatives that solve for this problem **do** exist, using one technique or another, such as [regex](https://github.com/mathiasbynens/emoji-regex) and the [UAX #29](https://unicode.org/reports/tr29/) algorithm, but I argue that such implementations are heavy-handed and convolute the problem space.
+
+<!--
+
+{
+  "127995": {
+    "8205": {
+      "9792": {
+        "65039": {
+          "match": {
+            "group": "People & Body",
+            "subgroup": "person-fantasy",
+            "codePoints": [
+              129500,
+              127995,
+              8205,
+              9792,
+              65039
+            ],
+            "status": "fully-qualified",
+            "emoji": "🧜🏻‍♀️",
+            "tag": "E5.0",
+            "description": "mermaid: light skin tone"
+          }
+        },
+        // ...
+      },
+      // ...
+    },
+    // ...
+  },
+  // ...
+}
+
+-->
