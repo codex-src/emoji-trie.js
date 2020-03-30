@@ -3,7 +3,7 @@
   <h1>
     <br>
     <br>
-    emoji-trie 🌳
+    emoji-trie.js 🌳
     <br>
     <br>
     <br>
