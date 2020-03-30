@@ -1,7 +1,7 @@
 import {
 	atEnd,
 	atStart,
-} from "../at"
+} from "../index"
 
 const EOF = ""
 
