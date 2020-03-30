@@ -28,22 +28,22 @@ _This package is not currently published to NPM._
 ```js
 import emojiTrie from "emoji-trie"
 
-emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea 🎵")
-{
-  "group": "People & Body",
-  "subgroup": "person-fantasy",
-  "codePoints": [
-    129500,
-    127995,
-    8205,
-    9792,
-    65039
-  ],
-  "status": "fully-qualified",
-  "emoji": "🧜🏻‍♀️",
-  "tag": "E5.0",
-  "description": "mermaid: light skin tone"
-}
+emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
+// {
+//   "group": "People & Body",
+//   "subgroup": "person-fantasy",
+//   "codePoints": [
+//     129500,
+//     127995,
+//     8205,
+//     9792,
+//     65039
+//   ],
+//   "status": "fully-qualified",
+//   "emoji": "🧜🏻‍♀️",
+//   "tag": "E5.0",
+//   "description": "mermaid: light skin tone"
+// }
 ```
 
 Or using CommonJS:
@@ -51,7 +51,7 @@ Or using CommonJS:
 ```js
 const emojiTrie = require("emoji-trie")
 
-emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea 🎵")
+emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
 ```
 
 ## How does emoji-trie.js work?
