@@ -3,7 +3,7 @@
   <h1>
     <br>
     <br>
-    emoji-trie.js 🌳
+    emoji-trie.js 🌳✨
     <br>
     <br>
     <br>
@@ -68,29 +68,31 @@ Time for an example! Here’s a slice of one of the internal data structures emo
 
 ```js
 {
-  127995: {
-    8205: {
-      9792: {
-        65039: {
-          match: {
-            group: "People & Body",
-            subgroup: "person-fantasy",
-            codePoints: [
-              129500,
-              127995,
-              8205,
-              9792,
-              65039
-            ],
-            status: "fully-qualified",
-            emoji: "🧜🏻‍♀️",
-            tag: "E5.0",
-            description: "mermaid: light skin tone"
+  129500: {
+    127995: {
+      8205: {
+        9792: {
+          65039: {
+            match: {
+              group: "People & Body",
+              subgroup: "person-fantasy",
+              codePoints: [
+                129500,
+                127995,
+                8205,
+                9792,
+                65039
+              ],
+              status: "fully-qualified",
+              emoji: "🧜🏻‍♀️",
+              tag: "E5.0",
+              description: "mermaid: light skin tone"
+            }
           }
-        },
-      },
-    },
-  },
+        }
+      }
+    }
+  }
 }
 ```
 
