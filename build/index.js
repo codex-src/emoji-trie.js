@@ -144,7 +144,7 @@ function () {
     value: function getMatch(codePoints) {
       // Expects an array of numbers
       var ref = this.trie;
-      var match = "";
+      var match = null;
 
       for (var index = 0; index < codePoints.length; index++) {
         var res = ref[codePoints[index]]; // If no reference, return eager match or no match:

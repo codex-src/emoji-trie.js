@@ -34,7 +34,7 @@ class CodePointTrie {
 	}
 	getMatch(codePoints) { // Expects an array of numbers
 		let ref = this.trie
-		let match = ""
+		let match = null
 		for (let index = 0; index < codePoints.length; index++) {
 			const res = ref[codePoints[index]]
 			// If no reference, return eager match or no match:
