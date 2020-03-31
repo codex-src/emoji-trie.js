@@ -26,7 +26,8 @@ You can import this package like so:
 _This package is not currently published to NPM._
 
 ```js
-import emojiTrie from "emoji-trie"
+import * as emojiTrie from "emoji-trie"
+// Or import { atStart, atEnd } from "emoji-trie"
 
 emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
 // {
@@ -46,13 +47,7 @@ emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
 // }
 ```
 
-Or using CommonJS:
-
-```js
-const emojiTrie = require("emoji-trie")
-
-emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
-```
+_Usage with CommonJS modules has not been tested nor is guaranteed to work._
 
 ## How does emoji-trie.js work?
 
