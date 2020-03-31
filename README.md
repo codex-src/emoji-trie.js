@@ -26,7 +26,8 @@ You can import this package like so:
 _This package is not currently published to NPM._
 
 ```js
-import emojiTrie from "emoji-trie"
+import * as emojiTrie from "emoji-trie"
+// Or import { atStart, atEnd } from "emoji-trie"
 
 emojiTrie.atStart("🧜🏻‍♀️ 🎵 Under the sea! 🎵")
 // {
