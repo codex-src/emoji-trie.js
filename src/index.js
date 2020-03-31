@@ -1,5 +1,5 @@
-const CodePointTrie = require("./CodePointTrie")
-const dataset = require("../scripts/UNICODE_13-0_DO-NOT-EDIT.generated.json")
+import CodePointTrie from "./CodePointTrie"
+import dataset from "../scripts/UNICODE_13-0_DO-NOT-EDIT.generated.json"
 
 const EmojiTrie = new CodePointTrie(dataset)
 const ReversedEmojiTrie = new CodePointTrie(dataset.map(each => ({ ...each, codePoints: [...each.codePoints].reverse() })))

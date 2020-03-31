@@ -1,4 +1,4 @@
-const emojiTrie = require("../index")
+import * as emojiTrie from "../index"
 
 const EOF = ""
 

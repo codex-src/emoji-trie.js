@@ -52,4 +52,4 @@ class CodePointTrie {
 	}
 }
 
-module.exports = CodePointTrie
+export default CodePointTrie
